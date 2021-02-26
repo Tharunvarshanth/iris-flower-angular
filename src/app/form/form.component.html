@@ -1,0 +1,33 @@
+<div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
+
+<form #flowerform="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit(flowerform.value)">
+
+  <div>
+    <label>1st value</label>
+    <input name="a" type="text" #a="ngModel"  class="form-control" required [class.is-invalid]="a.invalid && a.touched"  [(ngModel)]="flowerModel.a" >
+    <small class="text-danger" [class.d-none]="a.valid || a.untouched">Required</small>
+  </div>
+  <br><br>
+
+  <div>
+    <label>2nd value</label>
+    <input name="b" type="text" #b="ngModel" class="form-control" required [class.is-invalid]="b.invalid && b.touched" [(ngModel)]="flowerModel.b" >
+    <small class="text-danger" [class.d-none]="b.valid || b.untouched">Required</small>
+  </div>
+  <br><br>
+
+   <div>
+     <label>3rd value</label>
+     <input name="c" type="text" #c="ngModel" class="form-control"  required [class.is-invalid]="c.invalid && c.touched" [(ngModel)]="flowerModel.c" >
+     <small class="text-danger" [class.d-none]="c.valid || c.untouched">Required</small>
+  </div>
+  <br><br>
+
+  <div>
+    <label>4th value</label>
+    <input name="d" type="text" #d="ngModel" class="form-control" required [class.is-invalid]="d.invalid && d.touched" [(ngModel)]="flowerModel.d" >
+    <small class="text-danger" [class.d-none]="d.valid || d.untouched">Required</small>
+  </div>
+
+   <button [disabled]="flowerform.form.invalid"  class="btn btn-primary" type="submit" name="button">Predict</button>
+</form>
